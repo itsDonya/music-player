@@ -26,7 +26,6 @@ body {
 .img-container {
     width: 200px;
     height: 200px;
-    background-color: pink;
     position: absolute;
     top: 26px;
     left: -28px;
@@ -102,7 +101,7 @@ body {
 
 .progress {
     background-color: #70717b;
-    width: 30%;
+    width: 0%;
     height: 100%;
     border-radius: 8px;
 }
@@ -112,7 +111,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.current-time {
+.duration {
     color: #919191;
     font-size: 12px;
     position: absolute;
@@ -120,7 +119,7 @@ body {
     right: 0;
 }
 
-.duration {
+.current-time {
     color: #909090;
     font-size: 10px;
     position: absolute;
