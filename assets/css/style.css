@@ -126,3 +126,45 @@ body {
     position: absolute;
     bottom: -14px;
 }
+
+/* -----Media Query----- */
+@media (min-width:1200px) {
+    .player-container {
+        width: 380px;
+        height: 460px;
+    }
+
+    .img-container {
+        width: 260px;
+        height: 260px;
+        left: -36px;
+    }
+
+    .options {
+        height: 70%;
+        right: 52px;
+    }
+
+    .fas {
+        font-size: 22px;
+    }
+
+    #play {
+        font-size: 36px;
+    }
+
+    .song-info {
+        bottom: 76px;
+        left: 20px;
+    }
+
+    .song-name {
+        font-size: 18px;
+    }
+
+    .progress-container {
+        bottom: 34px;
+        left: 20px;
+    }
+    
+}
