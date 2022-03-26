@@ -5,7 +5,8 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
     background-color: #dee7ee;
     display: flex;
     align-items: center;
@@ -97,6 +98,7 @@ body {
     bottom: 24px;
     left: 16px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .progress {

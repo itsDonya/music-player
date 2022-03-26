@@ -8,6 +8,7 @@ const artistName = document.querySelector(".artist-name");
 const cover = document.querySelector(".song-cover");
 const currentTimeEl = document.querySelector(".current-time");
 const durationEl = document.querySelector(".duration");
+const progressContainer = document.querySelector(".progress-container");
 const progress = document.querySelector(".progress");
 // ------------Play & Pause-------------
 
@@ -166,4 +167,12 @@ music.addEventListener('timeupdate', (e) => {
     progress.style.width = `${progressPercent}%`;
 
 })
+// ----------Progress Bar----------
+function setProgressBar(e) {
+    const { duration } = music;
+    const width = this.clientWidth;
+    const clickedX = e.offsetX;
+    music.currentTime = (clickedX/width) * duration;
+}
 
+progressContainer.addEventListener("click", setProgressBar)
