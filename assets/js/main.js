@@ -86,7 +86,7 @@ const songs = [
     },
     {
         name: "Nice Guy",
-        artist: "Eminen (Ft Jessie Reyez)"
+        artist: "Eminem (Ft Jessie Reyez)"
     },
     {
         name: "The Redemy for a Broken Heart",
