@@ -149,7 +149,9 @@ music.addEventListener('timeupdate', (e) => {
     if (durationSeconds<10) {
         durationSeconds = `0${Math.floor(duration % 60)}`;
     }
-    durationEl.innerText = `${durationMinutes}:${durationSeconds}`;
+    if (durationSeconds) {
+        durationEl.innerText = `${durationMinutes}:${durationSeconds}`;
+    }
     
     // current time
     const currentMinutes = Math.floor(currentTime / 60);
