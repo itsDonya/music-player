@@ -139,3 +139,29 @@ function uploadSong() {
     cover.src = `assets/img/${songs[songIndex].name}.jpg`;
 }
 
+// ----------Song Progress----------
+music.addEventListener('timeupdate', (e) => {
+    const {currentTime, duration} = e.target;
+
+    // duration
+    const durationMinutes = Math.floor(duration / 60);
+    let durationSeconds = Math.floor(duration % 60);
+    if (durationSeconds<10) {
+        durationSeconds = `0${Math.floor(duration % 60)}`;
+    }
+    durationEl.innerText = `${durationMinutes}:${durationSeconds}`;
+    
+    // current time
+    const currentMinutes = Math.floor(currentTime / 60);
+    let currentSeconds = Math.floor(currentTime % 60);
+    if (currentSeconds<10) {
+        currentSeconds = `0${Math.floor(currentTime % 60)}`
+    }
+    currentTimeEl.innerText = `${currentMinutes}:${currentSeconds}`;
+
+    // progress width
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+
+})
+
