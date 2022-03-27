@@ -106,6 +106,18 @@ body {
     width: 0%;
     height: 100%;
     border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    background-color: #70717b;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
 }
 
 .current-time,
@@ -166,6 +178,11 @@ body {
     .progress-container {
         bottom: 34px;
         left: 20px;
+    }
+
+    .circle {
+        width: 10px;
+        height: 10px;
     }
     
 }
