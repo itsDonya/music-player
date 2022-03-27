@@ -10,6 +10,7 @@ const currentTimeEl = document.querySelector(".current-time");
 const durationEl = document.querySelector(".duration");
 const progressContainer = document.querySelector(".progress-container");
 const progress = document.querySelector(".progress");
+const toggleSwitch = document.querySelector('input[type="checkbox"]');
 // ------------Play & Pause-------------
 
 // Check if playing
@@ -159,7 +160,6 @@ function uploadSong() {
     } else {
         disslikeSong()
     }
-    console.log(isFavorite)
 }
 
 // ----------Song Progress----------
@@ -220,3 +220,15 @@ window.addEventListener("keydown", (e) => {
             break;
     }
 })
+
+// -----Dark/Light Mode----
+function switchTheme(event) {
+
+    if (event.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+}
+
+toggleSwitch.addEventListener('change', switchTheme);

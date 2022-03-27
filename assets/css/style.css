@@ -4,23 +4,123 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ---------------------------- */
+
+:root {
+    --bg: #dee7ee;
+    --slider-bg: #ffffff;
+    --switch-bg: #dadbe4;
+    --switch-bg-2: #eeeeee;
+    --player-bg: #f5f9ff;
+    --player-shadow: #bfc1d1;
+    --cover-shadow: #70717b;
+    --btn-color: #c0c2d5;
+    --play-color: #fff;
+    --play-shadow: #c4c4c4;
+    --song-name: #70717b;
+    --artist-name: #c4c4c4;
+    --progress-container-bg: #eaeaf3;
+    --progress-bg: #70717b;
+    --circle-bg: #70717b;
+    --duration-color: #919191;
+    --current-color: #909090;
+}
+
+[data-theme="dark"] {
+    --bg: #373e43;
+    --slider-bg: #b5b5b5;
+    --switch-bg: #373e43;
+    --player-bg: #27282b;
+    --player-shadow: #54555b;
+    --cover-shadow: #64656c;
+    --btn-color: #c0c2d5;
+    --play-color: #d8d8d8;
+    --play-shadow: #8f8f8f;
+    --song-name: #c4c4c4;
+    --artist-name: #70717b;
+    --progress-container-bg: #909096;
+    --progress-bg: #4d4e5c;
+    --circle-bg: #4d4e5c;
+    --duration-color: #919191;
+    --current-color: #909090;
+}
+
+/* ---------------------------- */
+
 body {
     min-height: 100vh;
     max-height: 100vh;
-    background-color: #dee7ee;
+    background-color: var(--bg);
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
-/* ----- */
+/* -----Theme switch----- */
+
+.switch {
+    width: 40px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: inline-block;
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--slider-bg);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    width: 14px;
+    height: 14px;
+    left: 4px;
+    bottom: 3px;
+    background-color: var(--switch-bg);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--slider-bg);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(18px);
+  }
+  
+  .slider.round {
+    border: none;
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border: none;
+    border-radius: 50%;
+  }
+/* ---------------------- */
 
 .player-container {
     width: 280px;
     height: 360px;
-    background-color: #f5f9ff;
+    background-color: var(--player-bg);
     border-radius: 10px;
-    box-shadow: 0px 12px 24px #bfc1d1;
+    box-shadow: 0px 12px 24px var(--player-shadow);
     position: relative;
 }
 
@@ -37,7 +137,7 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0px 20px 30px -10px #70717b;
+    box-shadow: 0px 20px 30px -10px var(--cover-shadow);
 }
 
 .options {
@@ -52,7 +152,7 @@ body {
 }
 
 .fas {
-    color: #c0c2d5;
+    color: var(--btn-color);
     cursor: pointer;
 }
 
@@ -62,9 +162,9 @@ body {
 }
 
 #play {
-    color: #fff;
+    color: var(--play-color);
     font-size: 32px;
-    filter: drop-shadow(0px 4px 6px #c4c4c4);
+    filter: drop-shadow(0px 4px 6px var(--play-shadow));
 }
 
 #play:hover {
@@ -78,20 +178,20 @@ body {
 }
 
 .song-name {
-    color: #70717b;
+    color: var(--song-name);
     font-size: 16px;
     font-weight: 700;
     margin: 4px 0;
 }
 
 .artist-name {
-    color: #c4c4c4;
+    color: var(--artist-name);
     font-size: 13px;
     font-weight: 500;
 }
 
 .progress-container {
-    background-color: #eaeaf3;
+    background-color: var(--progress-container-bg);
     width: 86%;
     height: 4px;
     position: absolute;
@@ -102,7 +202,7 @@ body {
 }
 
 .progress {
-    background-color: #70717b;
+    background-color: var(--progress-bg);
     width: 0%;
     height: 100%;
     border-radius: 8px;
@@ -112,7 +212,7 @@ body {
 }
 
 .circle {
-    background-color: #70717b;
+    background-color: var(--circle-bg);
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -126,7 +226,7 @@ body {
 }
 
 .duration {
-    color: #919191;
+    color: var(--duration-color);
     font-size: 12px;
     position: absolute;
     bottom: 8px;
@@ -134,7 +234,7 @@ body {
 }
 
 .current-time {
-    color: #909090;
+    color: var(--current-color);
     font-size: 10px;
     position: absolute;
     bottom: -14px;
