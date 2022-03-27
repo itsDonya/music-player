@@ -33,22 +33,6 @@ function pauseSong() {
 playBtn.addEventListener("click", () => isPlaying ? pauseSong() : playSong());
 
 
-// ------------Like Song-------------
-
-// Check if liked
-let liked = false;
-
-function likeSong() {
-    liked = true;
-    likeBtn.style.color = "#da6c6c";
-}
-
-function disslikeSong() {
-    liked = false;
-    likeBtn.style.color = "#c0c2d5";
-}
-
-likeBtn.addEventListener("click", () => liked ? disslikeSong() : likeSong())
 
 // -------------Songs-------------
 
@@ -99,7 +83,29 @@ const songs = [
     }
 ]
 
-// -----Update Songs-----
+
+// ------------Like Song-------------
+
+// Favorite songs
+const favoriteSongs = []
+
+// Check if liked
+let liked = false;
+
+// like|disslike
+function likeSong() {
+    liked = true;
+    likeBtn.style.color = "#da6c6c";
+    favoriteSongs.push(songName.innerText);
+}
+function disslikeSong() {
+    liked = false;
+    likeBtn.style.color = "#c0c2d5";
+}
+likeBtn.addEventListener("click", () => liked ? disslikeSong() : likeSong())
+
+
+// -------------Update Songs-------------
 
 let songIndex = 0;
 
@@ -132,12 +138,28 @@ function prevSong(index) {
 }
 
 
-// Upload function
+// Upload song
 function uploadSong() {
     music.src = `assets/music/${songs[songIndex].name}.mp3`;
     songName.innerText = `${songs[songIndex].name}`;
     artistName.innerText = `${songs[songIndex].artist}`;
     cover.src = `assets/img/${songs[songIndex].name}.jpg`;
+
+    // check if liked
+    let isFavorite = false;
+    for (let i = 0; i < favoriteSongs.length; i++) {
+        console.log(`${favoriteSongs[i]} - ${songName.innerText}`);
+        if (favoriteSongs[i] === songName.innerText) {
+            isFavorite = true;
+        }
+    }
+
+    if (isFavorite) {
+        likeSong()
+    } else {
+        disslikeSong()
+    }
+    console.log(isFavorite)
 }
 
 // ----------Song Progress----------
@@ -165,7 +187,7 @@ music.addEventListener('timeupdate', (e) => {
     // progress width
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`;
-
+    
 })
 // ----------Progress Bar----------
 function setProgressBar(e) {
@@ -176,3 +198,4 @@ function setProgressBar(e) {
 }
 
 progressContainer.addEventListener("click", setProgressBar)
+
