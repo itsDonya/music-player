@@ -199,3 +199,5 @@ function setProgressBar(e) {
 
 progressContainer.addEventListener("click", setProgressBar)
 
+// --------auto change to next song after ended--------
+music.addEventListener("ended", nextSong);
