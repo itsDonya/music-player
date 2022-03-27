@@ -201,3 +201,22 @@ progressContainer.addEventListener("click", setProgressBar)
 
 // --------auto change to next song after ended--------
 music.addEventListener("ended", nextSong);
+
+
+// ----------Keyboard Events----------
+window.addEventListener("keydown", (e) => {
+    switch (e.key) {
+        case " ":
+            isPlaying ? pauseSong() : playSong();
+            break;
+        case "Enter":
+            isPlaying ? pauseSong() : playSong();
+            break;
+        case "MediaTrackNext":
+            nextSong();
+            break;
+        case "MediaTrackPrevious":
+            prevSong();
+            break;
+    }
+})
